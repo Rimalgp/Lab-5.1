@@ -61,7 +61,7 @@ def index():
             <h2>Add Contact</h2>
             <form method="POST" action="/">
                 <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br>
+                <input type="text" id="Nothing" name="Nothing" required><br>
                 <label for="phone">Phone Number:</label><br>
                 <input type="text" id="phone" name="phone" required><br><br>
                 <input type="submit" value="Submit">
