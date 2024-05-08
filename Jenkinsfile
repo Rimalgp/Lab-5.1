@@ -8,7 +8,7 @@ pipeline {
         GITHUB_URL = 'https://github.com/narayanrai10/Lab5.1.git'     //<-----change this to match this new repository!
         KUBECONFIG = credentials('rain-225')                           //<-----change this to match your kubernetes credentials (MiamiID-225)! 
     }
-
+    //Pipeline Contains Docker Build
     stages {
         stage('Code Checkout') {
             steps {
@@ -35,7 +35,7 @@ pipeline {
                 }
             }
         }
-
+        //Pipeline Contains DEV/PROD
         stage('Deploy to Dev Environment') {
             steps {
                 script {
@@ -60,7 +60,7 @@ pipeline {
                 }
             }
     }
-
+        //Pipeline Contains Dynamic Code Testing
         stage("Run Acceptance Tests") {
             steps {
                 script {
@@ -94,7 +94,7 @@ pipeline {
                 '''
             }
         }
-        
+        //Pipeline Contains DEV/PROD
        stage('Deploy to Prod Environment') {
             steps {
                 script {
@@ -115,7 +115,7 @@ pipeline {
             }
         }
     }
-
+    //Pipeline Contains ChatOps Component (Slack Integration)
     post {
 
         success {
