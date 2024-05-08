@@ -81,7 +81,7 @@ pipeline {
                 }
             }
         }
-
+        //Pipeline Contains Static Code Testing
         stage ("Run Security Checks") {
             steps {
                 //                                                                 ###change the IP address in this section to your cluster IP address!!!!####
