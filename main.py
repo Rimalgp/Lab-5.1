@@ -19,8 +19,7 @@ def init_db():
             CREATE TABLE IF NOT EXISTS contacts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
-                phone TEXT NOT NULL,
-                address TEXT NOT NULL,
+                phone TEXT NOT NULL
             );
         ''')
         db.commit()
@@ -39,10 +38,9 @@ def index():
         else:
             name = request.form.get('name')
             phone = request.form.get('phone')
-            address = request.form.get('address')
             if name and phone:
                 db = get_db()
-                db.execute('INSERT INTO contacts (name, phone, address) VALUES (?, ? )', (name, phone, address))
+                db.execute('INSERT INTO contacts (name, phone) VALUES (?, ?)', (name, phone))
                 db.commit()
                 message = 'Contact added successfully.'
             else:
@@ -67,8 +65,6 @@ def index():
                 <label for="phone">Phone Number:</label><br>
                 <input type="text" id="phone" name="phone" required><br><br>
                 <input type="submit" value="Submit">
-                <label for="address">Address:</label><br>
-                <input type="text" id="address" address="address" required><br>
             </form>
             <p>{{ message }}</p>
             {% if contacts %}
@@ -76,14 +72,12 @@ def index():
                     <tr>
                         <th>Name</th>
                         <th>Phone Number</th>
-                        <th>Address</th>
                         <th>Delete</th>
                     </tr>
                     {% for contact in contacts %}
                         <tr>
                             <td>{{ contact['name'] }}</td>
                             <td>{{ contact['phone'] }}</td>
-                            <td?{{ contact['address'] }}</td>
                             <td>
                                 <form method="POST" action="/">
                                     <input type="hidden" name="contact_id" value="{{ contact['id'] }}">
