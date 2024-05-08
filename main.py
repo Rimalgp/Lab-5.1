@@ -55,10 +55,10 @@ def index():
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Information</title>
+            <title>Contacts</title>
         </head>
         <body>
-            <h2>Your Info</h2>
+            <h2>Add Contact</h2>
             <form method="POST" action="/">
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br>
