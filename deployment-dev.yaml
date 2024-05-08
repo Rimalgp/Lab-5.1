@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: v1                  #Pipeline Contains Data Persistence
 kind: PersistentVolume
 metadata:
   name: flask-pv
