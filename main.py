@@ -93,7 +93,6 @@ def index():
                 <p>No game found.</p>
             {% endif %}
             <a href="https://www.chess.com/play/online" target="_blank">Play Chess</a>
-            <a href="randonpage.html" target="_blank">Play Chess</a>
         </body>
         </html>
     ''', message=message, contacts=contacts)
