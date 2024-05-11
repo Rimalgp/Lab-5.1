@@ -20,7 +20,7 @@ def init_db():
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
                 phone TEXT NOT NULL,
-                adress  TEXT NOT NULL
+                address TEXT NOT NULL
             );
         ''')
         db.commit()
@@ -76,12 +76,14 @@ def index():
                     <tr>
                         <th>Name</th>
                         <th>Phone Number</th>
+                        <th>Address</th>
                         <th>Delete</th>
                     </tr>
                     {% for contact in contacts %}
                         <tr>
                             <td>{{ contact['name'] }}</td>
                             <td>{{ contact['phone'] }}</td>
+                            <td>{{ contact['address'] }}</td>
                             <td>
                                 <form method="POST" action="/">
                                     <input type="hidden" name="contact_id" value="{{ contact['id'] }}">
@@ -95,7 +97,7 @@ def index():
             {% else %}
                 <p>No contacts found.</p>
             {% endif %}
-            <a href="randonpage">Next Page</a>
+            <a href="='Lab5.1/randonpage'>Next Page</a>
         </body>
         </html>
     ''', message=message, contacts=contacts)
