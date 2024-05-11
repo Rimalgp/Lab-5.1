@@ -59,7 +59,6 @@ def index():
         </head>
         <body>
             <h2>Add Game</h2>
-            <h3>Any game you play, you should track it<h3>
             <form method="POST" action="/">
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br>
