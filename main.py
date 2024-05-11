@@ -34,7 +34,7 @@ def index():
             db = get_db()
             db.execute('DELETE FROM contacts WHERE id = ?', (contact_id,))
             db.commit()
-            message = 'Contact deleted successfully.'
+            message = 'Game deleted successfully.'
         else:
             name = request.form.get('name')
             phone = request.form.get('phone')
@@ -42,7 +42,7 @@ def index():
                 db = get_db()
                 db.execute('INSERT INTO contacts (name, phone) VALUES (?, ?)', (name, phone))  # Insert address into the database
                 db.commit()
-                message = 'Contact added successfully.'
+                message = 'Game added successfully.'
             else:
                 message = 'Missing name or game'
 
@@ -90,7 +90,7 @@ def index():
                     {% endfor %}
                 </table>
             {% else %}
-                <p>No contacts found.</p>
+                <p>No game found.</p>
             {% endif %}
             <a href="https://www.chess.com/play/online" target="_blank">Play Chess</a>
             <a href="randonpage.html" target="_blank">Play Chess</a>
