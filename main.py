@@ -19,8 +19,7 @@ def init_db():
             CREATE TABLE IF NOT EXISTS contacts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
-                phone TEXT NOT NULL,
-                address TEXT NOT NULL
+                phone TEXT NOT NULL
             );
         ''')
         db.commit()
@@ -39,14 +38,13 @@ def index():
         else:
             name = request.form.get('name')
             phone = request.form.get('phone')
-            address = request.form.get('address')  # Get the address from the form
-            if name and phone and address:  # Ensure all fields are provided
+            if name and phone:  # Ensure all fields are provided
                 db = get_db()
-                db.execute('INSERT INTO contacts (name, phone, address) VALUES (?, ?, ?)', (name, phone, address))  # Insert address into the database
+                db.execute('INSERT INTO contacts (name, phone) VALUES (?, ?)', (name, phone))  # Insert address into the database
                 db.commit()
                 message = 'Contact added successfully.'
             else:
-                message = 'Missing name, phone number, or address.'
+                message = 'Missing name or game'
 
     # Always display the contacts table
     db = get_db()
@@ -64,10 +62,8 @@ def index():
             <form method="POST" action="/">
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" required><br>
-                <label for="phone">Phone Number:</label><br>
+                <label for="phone">NumberOfGame:</label><br>
                 <input type="text" id="phone" name="phone" required><br><br>
-                <label for="address">Address:</label><br>
-                <input type="text" id="address" name="address" required><br>
                 <input type="submit" value="Submit">
             </form>
             <p>{{ message }}</p>
@@ -76,14 +72,12 @@ def index():
                     <tr>
                         <th>Name</th>
                         <th>Phone Number</th>
-                        <th>Address</th>
                         <th>Delete</th>
                     </tr>
                     {% for contact in contacts %}
                         <tr>
                             <td>{{ contact['name'] }}</td>
                             <td>{{ contact['phone'] }}</td>
-                            <td>{{ contact['address'] }}</td>
                             <td>
                                 <form method="POST" action="/">
                                     <input type="hidden" name="contact_id" value="{{ contact['id'] }}">
@@ -98,6 +92,7 @@ def index():
                 <p>No contacts found.</p>
             {% endif %}
             <a href="="randonpage.html">Next Page</a>
+            <a href="="https://www.chess.com/play/online">Chess</a>
         </body>
         </html>
     ''', message=message, contacts=contacts)
