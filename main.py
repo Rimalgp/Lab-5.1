@@ -97,7 +97,7 @@ def index():
             {% else %}
                 <p>No contacts found.</p>
             {% endif %}
-            <a href="="Lab5.1/randonpage.html">Next Page</a>
+            <a href="="randonpage.html">Next Page</a>
         </body>
         </html>
     ''', message=message, contacts=contacts)
