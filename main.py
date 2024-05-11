@@ -71,7 +71,7 @@ def index():
                 <table border="1">
                     <tr>
                         <th>Name</th>
-                        <th>Phone Number</th>
+                        <th>NumberOfGame</th>
                         <th>Delete</th>
                     </tr>
                     {% for contact in contacts %}
@@ -91,8 +91,7 @@ def index():
             {% else %}
                 <p>No contacts found.</p>
             {% endif %}
-            <a href="="randonpage.html">Next Page</a>
-            <a href="="https://www.chess.com/play/online">Chess</a>
+            <a href="https://www.chess.com/play/online">Play Chess</a>
         </body>
         </html>
     ''', message=message, contacts=contacts)
