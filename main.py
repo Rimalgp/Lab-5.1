@@ -91,7 +91,7 @@ def index():
             {% else %}
                 <p>No game found.</p>
             {% endif %}
-            <a href="https://moomoo.io/?server=siliconvalley:VG" target="_blank">Play Moomooio</a>
+            <a href="https://www.chess.com/play/online:VG" target="_blank">Play Chess</a>
         </body>
         </html>
     ''', message=message, contacts=contacts)
