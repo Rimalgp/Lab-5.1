@@ -40,7 +40,7 @@ def index():
             phone = request.form.get('phone')
             if name and phone:  # Ensure all fields are provided
                 db = get_db()
-                db.execute('INSERT INTO contacts (name, phone) VALUES (?, ?)', (name, phone))  # Insert address into the database
+                db.execute('INSERT INTO contacts (name, phone) VALUES (?, ?)', (name, phone))  # Insert address into the datab
                 db.commit()
                 message = 'Game added successfully.'
             else:
